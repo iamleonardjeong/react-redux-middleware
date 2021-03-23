@@ -4,8 +4,9 @@ import { startLoading, finishLoading } from '../modules/loading';
 export default function createRequestSaga(type, request) {
   const SUCCESS = `${type}_SUCCESS`;
   const FAILURE = `${type}_FAILURE`;
-
+  console.log(type);
   return function* (action) {
+    console.log(action);
     yield put(startLoading(type));
     try {
       const response = yield call(request, action.payload);
